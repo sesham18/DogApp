@@ -1,7 +1,8 @@
 language: node_js
 node_js: node
 deploy:
+  provider: heroku
   edge: true
-  app: warm-stream-27959
   api_key:
     secure: hzcN1LFOJdSiDfzLl8Zit4DoZfu30R8fnMGPZWnc70pIxk4Qw8vbS0j9d4hlDH4j2pbXfCJx4yqYoLs2fWw32GP1U9cx4tTqMNITotExntIhXZzcbv5FlwMH3/2vblaxlLCdZH0LGzScnE7DRaL9PH0xnpp/2HqZI89Yx8zCXmSeakA4XByRrlSojGps/5Z7yj+wcSY0C+lRkruNvXHNPI5Q+NvxBCEg5ZcH+tnvIbn2GYl0pWC9j3R+lfO0kwOqABavsAPy4GoMphBKnJxn9AL2iq1pzCnpX0Wjg+oJ77sDO/qgdga+RZjHnsns+Ppw9LPdD8SwfvT4tE5uJqr0QbCDKN/0CKJFYvupTZlb856GBpIH5fKN/m05cKAHcTlOXuSEygvm1MGnwUEN8gF2cCsxIXgjdLKji+lp0fx61uBikvnImXnv8kOYozslzp9qTs4dlysgl/AKCMuWmIZ2EltcNoazXEGluOr3PUqxGtDNyD+XsRDPC7azZl+FDpMRg4gqG02NKsD3e+nxc8X/WB0Zr1tRqFqedxTvUQ7ewshiqN5GmXNLOVU7L8i1s9/gLgt3AfgpriFbkDeXGhRssJGZGGUJMHSobXRrMbDI93FROidPI8Lt97qTJ5Y9h9meTw4oYGKY8g1uwDI2/9ZQ+E1uDcb0dmBvx4mSE7g0PJg=
+  app: warm-stream-27959
