@@ -2,12 +2,12 @@
   "name": "dogapp",
   "version": "1.0.0",
   "description": "dog app built in node",
-  "main": "server.js",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha --exit",
+    "test": "mocha",
     "start": "node server.js"
   },
   "author": "",
