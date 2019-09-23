@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+   }
+   
+   body {
+    background-color: rgb(253, 243, 160);
+    font-family: 'Varela Round', sans-serif;
+   }
+   
+   .title{
+    display: block; 
+    margin-right: auto; 
+    margin-left: auto;
+    font-family: 'Bangers';
+    text-align: center;
+    margin-bottom: 5px; 
+    font-size: 40px;
+    color: rgb(250, 106, 82); 
+   }
+   .instructions p{ 
+    display: block; 
+    font-family: 'Varela Round', sans-serif;
+    text-align: center;
+    font-size: 25px;
+    color: rgb(227, 161, 67);
+    margin-bottom: 20px; 
+    /*width: 700px; 
+    height: 100px;*/
+    margin-right: auto; 
+    margin-left: auto; 
+    
+    /*background-color: rgb(253, 243, 160);
+    border: 5px solid rgb(250, 212, 82);*/
+   }
+   
+   .intro-pic{
+    display: block;
+    margin-right: auto; 
+    margin-left: auto; 
+    height: 300px;
+    margin-bottom: 10px; 
+    margin-top: 10px; 
+     
+    border: 5px solid rgb(227, 161, 67);
+    border-radius: 5px; 
+   }
+   
+   .js-form{
+     display: none; 
+     width: 500px;
+     height: 300px; 
+     padding-left:40px;
+     padding-right:40px;
+     padding-top: 10px; 
+     padding-bottom: 10px; 
+     background-color: rgb(250, 212, 82);
+     border-radius:5px;
+     margin-left: auto;
+     margin-right: auto;
+     border: 5px solid rgb(227, 161, 67)
+     
+   }
+   
+   input[type=text]{
+     background-color: rgb(253, 243, 160); 
+   }
+   
+   label{
+    display: block;
+    width: 300px; 
+    margin-right: auto; 
+    margin-left: auto;
+    margin-top: 30px; 
+    margin-bottom: 10px;  
+    font-size: 20px;
+    color: rgb(250, 106, 82); 
+    
+   }
+   #js-cuisine-type, #js-search-term {
+    display: block;
+    width: 300px;
+    margin-top: 10px; 
+    margin-bottom: 5px; 
+    margin-right: auto; 
+    margin-left: auto; 
+    font-size: 15px; 
+    border-radius: 5px; 
+    color:rgb(250, 106, 82); 
+    
+   }
+   
+   .buttonval{
+    font-size: 20px;
+    margin-top: 15px;
+    position: relative;
+    width: 400px;
+    left: 4%;  
+    border-radius: 5px; 
+    background-color: rgb(250, 106, 82); 
+    color:rgb(253, 243, 160);
+   }
+   
+   .resetButton{
+     font-size: 15px; 
+     position: inline-block; 
+     width: 100px; 
+     float: right; 
+     right: 0; 
+     top: 100px; 
+     bottom: 200px; 
+     border-radius: 5px; 
+     background-color: rgb(250, 106, 82); 
+     color:rgb(253, 243, 160);
+   
+   }
+   
+   
+   
+   .error-message {
+      color: red;
+   }
+   
+   .hidden {
+    display: none;
+   }
+   
+   .contain-results{
+     color: rgb(250, 106, 82);
+   }
+   
+   .contain-results h2{
+     color: rgb(227, 161, 67);  
+   }
+   
+   #results-list-1{
+     display:inline-block; 
+     margin-right: auto; 
+     margin-left: auto; 
+     
+   }
+   #results-list-2{
+     display:inline-block;
+     
+     margin-right: auto; 
+     margin-left: auto; 
+   }
+   
+   
+   .restart{ 
+     font-size: 20px;
+     margin-top: 5px;
+     margin-bottom: 10px; 
+     width: 300px;
+     float: right; 
+     background-color: rgb(250, 106, 82); 
+     color: rgb(253, 243, 160);
+   }
+   
+   /* Smartphones (landscape) ----------- */
+   @media only screen and (min-width : 321px) {
+     width: 50%;
+     image-size: 50%;   
+   }
+   
+   /* Smartphones (portrait) ----------- */
+   @media only screen and (max-width : 320px) {
+     width: 50%; 
+   }
+   /* iPads (portrait and landscape) ----------- */
+   @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+     width: 100%; 
+   }
+   
+   .get-started{
+     font-size: 20px;
+     margin-top: 5px;
+     margin-bottom: 10px; 
+     width: 300px;
+     background-color: rgb(250, 106, 82); 
+     color: rgb(253, 243, 160);
+     display:block; 
+     margin-right: auto; 
+     margin-left: auto; 
+   }
