@@ -14,14 +14,14 @@
     font-family: 'Bangers';
     text-align: center;
     margin-bottom: 5px; 
-    font-size: 40px;
+    font-size: 30px;
     color: rgb(250, 106, 82); 
    }
    .instructions p{ 
     display: block; 
     font-family: 'Varela Round', sans-serif;
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
     color: rgb(227, 161, 67);
     margin-bottom: 20px; 
     /*width: 700px; 
