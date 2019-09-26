@@ -5,24 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Doggone!</title>
+    <title>Doggone</title>
     <link rel="stylesheet" href="index.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
     <main role = "main">
+
     <div class = "title" aria-live = "polite">
-        <h1>Doggone! A pup adoption service </h1>
-        <p>Are you an shelter administrator or a potential adopter, looking to get awareneess about adoptable pups in your area? </p>
-        <p>Look no further. Doggone allows you to view dogs in your area, as well as edit the dogs in your area.</p>
-        <img class="intro-pic" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Collage_of_Nine_Dogs.jpg" alt="image"/>
-        <button class="get-started">Get Started!</button>
+        <h1>doggone</h1>
     </div>
-    </main>
+    
+    <div class="help-tip">
+        <p>You can continue anonymously by hitting the 'Get Started' button or by logging in.</p>
+    </div>
+
+    <div class="home"><p>Home</p></div>
+
+    <div class="instructions" aria-live = "polite">
+        <h2>Are you an shelter administrator looking to get awareness about adoptable pups in your area? Let doggone help you </h2>
+    </div>
+
+    <div class = "choose-instructions" aria-live = "polite">
+        <button role="button" class="get-start" id = "get-start">Get Started</button>
+        <button role="button" class="login" id="login">Log In</button>
+    </div>
+    
+    <div class = "container" aria-live = "polite">
+        <form role="form" class="signup" action="/signup/" method="post">
+            <h1>Sign Up</h1>
+            <fieldset name="contactinfo">
+                <label for="email" required>Email Address</label>
+                <input type="email"name="email" id="email" placeholder="seattlehumane@aspca.org" title="Email Address"required/>
+                <label for="password"required>Password</label>
+                <input type="password" name="password" id="password" placeholder="doggonepass"title="Password needed" required/>
+            </fieldset>
+            <button role="button" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="contain-results" aria-live="polite">
+        <button class="restart" id="restart">Restart</button>
+            <p id="js-error-message" class="error-message"></p>
+            <section id="results" class="hidden">
+                <h2></h2>
+                  <ul id="results-list-1">
+                  </ul>
+                  <h2></h2>
+                  <ul id="results-list-2">
+                  </ul>
+            </section>   
+    </div>
+    <script src="index.js"></script>
 </body>
 
 </html>
