@@ -3,6 +3,7 @@
 const express = require('express');
 const app = express();
 const dogRouter = require('./router'); 
+const morgan = require('morgan');
 
 app.use(morgan('common')); 
 app.use(express.static('public'));
