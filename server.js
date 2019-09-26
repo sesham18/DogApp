@@ -8,7 +8,6 @@ const dogRouter = require('./router');
 app.use(express.static('public'));
 
 
-
 app.use('/doggone', dogRouter);
 
 if (require.main === module) {
