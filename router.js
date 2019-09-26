@@ -10,9 +10,12 @@ DogApp.create(
   'Spot', '3', 'M');
 DogApp.create(
   'Kelly', '10', 'F');
-  DogApp.create(
+DogApp.create(
     'Mark', '1', 'F');
 
+DogApp.create(
+    'Annie', '1', 'M');
+    
 router.get('/', (req, res) => {
   res.json(DogApp.get());
 });
