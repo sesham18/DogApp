@@ -16,6 +16,7 @@ body {
     margin-right: auto; 
     margin-left: auto;
     margin-top: 30px; 
+    margin-bottom: 30px; 
     font-family: 'Indie Flower', cursive;
     text-align: center;
     font-size: 50px;
@@ -121,7 +122,7 @@ body {
     display: block; 
     font-size: 10px; 
     font-family: 'Work Sans', sans-serif; 
-    margin-top: 50px; 
+    margin-top: 80px; 
 }
 
 .signup{
