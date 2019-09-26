@@ -1,9 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
-
-
+const router = express.Router();
 const {DogApp} = require('./models');
 
 // we're going to add some recipes to Recipes
@@ -12,7 +10,8 @@ DogApp.create(
   'Spot', '3', 'M');
 DogApp.create(
   'Kelly', '10', 'F');
-
+  DogApp.create(
+    'Mark', '1', 'F');
 
 router.get('/', (req, res) => {
   res.json(DogApp.get());
