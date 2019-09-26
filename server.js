@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const dogRouter = require('./router'); 
 
-//app.use(morgan('common')); 
+app.use(morgan('common')); 
 app.use(express.static('public'));
 
 
