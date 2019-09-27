@@ -7,7 +7,9 @@
 //to handle when restart button is pushed
 
 $('.container').hide(); 
-$('.restart').hide(); 
+$('.restart').hide();
+$('.restart').hide();  
+
 
 $('#get-start').on('click', function(){
     $('.instructions').hide(); 
