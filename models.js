@@ -8,7 +8,7 @@ function StorageException(message) {
 
 const DogApp = {
     create: function(name, age, gender) {
-      console.log('Creating new shopping list item');
+      console.log('Creating doggone item');
       const item = {
         name: name,
         id: uuid.v4(),

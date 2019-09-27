@@ -4,24 +4,20 @@ const jsonParser = bodyParser.json();
 const router = express.Router();
 const {DogApp} = require('./models');
 
-// we're going to add some recipes to Recipes
-// so there's some data to look at
 DogApp.create(
   'Spot', '3', 'M');
 DogApp.create(
   'Kelly', '10', 'F');
 DogApp.create(
     'Mark', '1', 'F');
-
 DogApp.create(
     'Annie', '1', 'M');
-    
+
 router.get('/', (req, res) => {
   res.json(DogApp.get());
 });
 
 router.post('/', jsonParser, (req, res) => {
-  
   const requiredFields = ['name', 'age', 'gender'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -37,7 +33,7 @@ router.post('/', jsonParser, (req, res) => {
 
 router.delete('/:id', (req, res) => {
   DogApp.delete(req.params.id);
-  console.log(`Deleted shopping list item \`${req.params.ID}\``);
+  console.log(`Deleted doggone item \`${req.params.ID}\``);
   res.status(204).end();
 });
 
