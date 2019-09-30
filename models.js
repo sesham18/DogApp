@@ -1,14 +1,10 @@
+'use strict'; 
+
 const uuid = require('uuid');
-
-function StorageException(message) {
-   this.message = message;
-   this.name = "StorageException";
-}
-
 
 const DogApp = {
     create: function(name, age, gender) {
-      console.log('Creating doggone item');
+      console.log("Creating doggone item");
       const item = {
         name: name,
         id: uuid.v4(),
@@ -19,15 +15,15 @@ const DogApp = {
       return item;
     },
     get: function() {
-      console.log('Retrieving doggone items');
+      console.log("Retrieving items");
       return Object.keys(this.items).map(key => this.items[key]);
     },
     delete: function(id) {
-      console.log(`Deleting doggone item \`${id}\``);
+      console.log("Deleting item");
       delete this.items[id];
     },
     update: function(updatedItem) {
-      console.log(`Deleting doggone item \`${updatedItem.id}\``);
+      console.log("Deleting item");
       const {id} = updatedItem;
       if (!(id in this.items)) {
         throw StorageException(
