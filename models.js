@@ -1,13 +1,15 @@
 'use strict'; 
+var ID = function () {
+  return '_' + Math.random().toString(36).substr(2, 9);
+};
 
-const uuid = require('uuid');
 
 const DogApp = {
     create: function(name, age, gender) {
       console.log("Creating doggone item");
       const item = {
         name: name,
-        id: uuid.v4(),
+        id: ID(),
         gender: gender, 
         age: age
       };
