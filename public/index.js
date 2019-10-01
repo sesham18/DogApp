@@ -1,5 +1,6 @@
 'use strict';
 
+const dogurl = 'https://warm-stream-27959.herokuapp.com/'; 
 //const apiKey = '3d3fcf34cda34fce587f2359960fe43f';
 //const meal = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=';
 //const restaurant = 'https://developers.zomato.com/api/v2.1/search?apikey=3d3fcf34cda34fce587f2359960fe43f&entity_id=';
@@ -15,6 +16,7 @@ $('#get-start').on('click', function(){
     $('.instructions').hide(); 
     $('.choose-instructions').hide(); 
     $('.container').hide(); 
+    getInfo(); 
 })
 
 $('#login').on('click', function(){
@@ -55,6 +57,23 @@ function watchForm() {
 }
 $(watchForm);
 
+
+function getInfo() {
+  const url = dogURL + 'doggone/'; 
+  console.log(url1); 
+  fetch(url)
+    .then(response => {
+      if(response.ok) {
+        return response.json(); 
+      }
+      throw new Error(response.statusText); 
+    })
+    .then(responseJson => displayResults(responseJson))
+    .catch(err => {
+    $('#js-error-message').text(`Something went wrong: ${err.message}`);
+   });
+}
+
 //First accesses MealDB to get recipes
 function getInfo(cuisine) {
  const url1 = meal + cuisine;
@@ -70,36 +89,6 @@ function getInfo(cuisine) {
    .catch(err => {
      $('#js-error-message').text(`Something went wrong: ${err.message}`);
    });
-};
-
-//Then accesses Zomato to first get location id then uses that to find restaurants at that id
-function getInfo2(loc, cuisine) {
- const url12 = locURL + loc + '%20'; 
- console.log(url12);
-
- fetch(url12)
-  .then(response => {
-   if (response.ok) {
-    return response.json();
-   }
-   throw new Error(response.statusText);
-   })
-  .then(responseJson => {
-   let idVal = responseJson.location_suggestions[0].entity_id; //gets the location id first
-   let urlNew = restaurant + idVal + '&entity_type=city&q=' + cuisine ; 
-   console.log(urlNew);
-   fetch(urlNew)
-    .then(response => {
-     if (response.ok) {
-      return response.json();
-     }
-     throw new Error(response.statusText); 
-    })
-  .then(responseJson => displayResults2(responseJson))
-  .catch(err => {
-   $('#js-error-message').text(`Something went wrong: ${err.message}`);
-  });
- });
 };
 
 
@@ -124,30 +113,4 @@ function displayResults(responseJson) { //Displaying results for first API call.
     $('#js-search-term').reset(); 
     $('#js-cuisine-type').reset(); 
   }); 
-};
-
-
-function displayResults2(responseJson2) { 
- console.log(responseJson2);
- var arr = responseJson2;
- let lenTotal2 = arr.restaurants.length;
- console.log(lenTotal2);
- for (let i = 0; i < lenTotal2; i++){
-  $('#results-list-2').append(
-   `<li><h3>${arr.restaurants[i].restaurant.name}</h3>
-   <p> ${arr.restaurants[i].restaurant.location.address}</p>
-   <p> <a href="${arr.restaurants[i].restaurant.menu_url}">Menu</p>
-   </li>`
-  );
- };
- $('#results').removeClass('hidden');
-
- $('.restart').on('click', function(){
-  $('#results').addClass('hidden'); 
-  $('#results-list-1').empty(); 
-  $('#results-list-2').empty();  
-  $('#js-search-term').reset(); 
-  $('#js-cuisine-type').reset(); 
-
- }); 
 };
