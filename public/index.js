@@ -1,11 +1,6 @@
 'use strict';
 
-const dogurl = 'https://warm-stream-27959.herokuapp.com/'; 
-//const apiKey = '3d3fcf34cda34fce587f2359960fe43f';
-//const meal = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=';
-//const restaurant = 'https://developers.zomato.com/api/v2.1/search?apikey=3d3fcf34cda34fce587f2359960fe43f&entity_id=';
-//const locURL = 'https://developers.zomato.com/api/v2.1/locations?apikey=3d3fcf34cda34fce587f2359960fe43f&query=';
-//to handle when restart button is pushed
+const dogurl = 'https://warm-stream-27959.herokuapp.com/doggone'; 
 
 $('.container').hide(); 
 $('.restart').hide();
@@ -16,8 +11,8 @@ $('#get-start').on('click', function(){
     $('.instructions').hide(); 
     $('.choose-instructions').hide(); 
     $('.container').hide(); 
-    getInfo(); 
-})
+    getInfo4(); 
+});
 
 $('#login').on('click', function(){
     $('.instructions').hide(); 
@@ -58,10 +53,9 @@ function watchForm() {
 $(watchForm);
 
 
-function getInfo() {
-  const url = dogURL + 'doggone/'; 
-  console.log(url1); 
-  fetch(url)
+function getInfo4() { 
+  console.log(dogurl); 
+  fetch(dogurl)
     .then(response => {
       if(response.ok) {
         return response.json(); 
