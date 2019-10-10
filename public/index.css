@@ -202,4 +202,80 @@ fieldset{
     border-radius: 5px;
     border: none; 
 }
+
+
+
+.dog-details{
+    width: 300px;
+    height: 300px; 
+    padding-left:10px;
+    padding-right:10px;
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    background-color:rgb(212, 229, 243); 
+    border-radius:5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px; 
+}
+.dog-details h1{
+    font-family: 'Work Sans', sans-serif;
+    text-align: center;
+    size: 20px;
+    color: rgb(57, 93, 122); 
+    
+}
+.dog-details label{ 
+    font-family: 'Work Sans', sans-serif;
+    color: rgb(57, 93, 122); 
+    text-align: left; 
+    font-size: 10px;
+    margin-bottom: 5px; 
+    margin-top: 5px;
+    display: block;
+}
+
+fieldset{
+      border: none;
+      
+}
+.dog-details input{ 
+    display: block;
+    width: 200px;  
+    height: 50px; 
+    margin-right: auto;
+    margin-left: auto;  
+    margin-top:10px;
+    margin-bottom:5px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 10px; 
+    background-color:rgb(241, 238, 233); 
+    color: rgb(145, 141, 135);
+}
+  
+.dog-details button{
+    width: 100px; 
+    position:relative;
+    margin-left: 5px;
+    margin-top: 5px;
+    float: center; 
+    background-color:rgb(79, 110, 134);  
+    height: 25px;   
+    font-family: 'Work Sans', sans-serif;
+    font-size: 10px;
+    color: rgb(241, 238, 233); 
+    border-radius: 5px; 
+}
+
+
+.dog-db{
+    padding-left:10px;
+    padding-right:10px;
+    padding-top: 5px; 
+    padding-bottom: 10px; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px; 
+}
+
    
