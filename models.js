@@ -1,4 +1,51 @@
-'use strict'; 
+'use strict';
+
+const mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise;
+
+const dogSchema = mongoose.Schema({
+  Name: { type: String, required: true },
+  Gender: { type: String, required: true },
+  Age: { type: String, required: true },
+
+});
+
+dogSchema.methods.serialize = function() {
+  return {
+    id: this._id,
+    Name: this.Name,
+    Gender: this.Gender,
+    Age: this.Age,
+  };
+};
+
+const Dog = mongoose.model("Dog", dogSchema);
+
+module.exports = { Dog };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const uuid = require('uuid');
 
@@ -12,7 +59,7 @@ const DogApp = {
       console.log("Creating doggone item");
       const item = {
         name: name,
-        id: uuid.v4(),
+        id: ID(),
         gender: gender, 
         age: age
       };
