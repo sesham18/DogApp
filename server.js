@@ -3,14 +3,8 @@
 const express = require('express');
 const mongoose = require('mongoose'); 
 const app = express();
-mongoose.Promise = global.Promise;
-
-//const dogRouter = require('./router'); 
-//const morgan = require('morgan');
-//app.use(morgan('common')); 
-//app.use(express.static('public'));
 app.use(express.json());
-//app.use('/doggone', dogRouter);
+mongoose.Promise = global.Promise;
 
 const { PORT, DATABASE_URL } = require("./config");
 const { Dog } = require("./models");
@@ -93,21 +87,15 @@ app.delete("/doggone/:id", (req, res) => {
 });
 
 
-if (require.main === module) {
-    app.listen(process.env.PORT || 8080, function() {
-    });
-}
 
-
-//Catch-all
 app.use("*", function(req, res) {
     res.status(404).json({ message: "Not Found" });
 });
   
-let server;
-  
-  // this function connects to our database, then starts the server
-function runServer(databaseUrl, port = PORT) {
+
+let server;  
+
+function runServer(databaseUrl = DATABASE_URL, port = PORT) {
     return new Promise((resolve, reject) => {
       mongoose.connect(
         databaseUrl,
