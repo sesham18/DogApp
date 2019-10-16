@@ -1,8 +1,11 @@
+"use strict"; 
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 const router = express.Router();
 const {DogApp} = require('./models');
+const {data} = require('./data'); 
 
 DogApp.create(
   'Spot', '3', 'M');
