@@ -20,7 +20,7 @@ dogSchema.methods.serialize = function() {
   };
 };
 
-const Dog = mongoose.model("Dog", dogSchema);
+var Dog = mongoose.model("Dog", dogSchema);
 
 module.exports = { Dog };
 

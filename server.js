@@ -14,6 +14,9 @@ const { Dog } = require("./models");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+app.use(express.static('public/css/'));
 
 var database, collection;
 
@@ -62,6 +65,7 @@ app.post("/doggone", (req, res) => {
       if(error) {
           return res.status(500).send(error);
       }
+      console.log(req.body);
       res.send(result.result);
   });
 });
@@ -91,8 +95,8 @@ app.delete("/doggone/:id", (req, res) => {
   })
 }); 
 
-app.use("*", function(req, res) {
-  res.status(404).json({ message: "Not Found" });
+app.get("/", (req, res) => {
+  res.render("index");
 });
 
 
