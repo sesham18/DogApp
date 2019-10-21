@@ -1,8 +1,6 @@
 'use strict';
 
-const dogurl = 'https://warm-stream-27959.herokuapp.com/doggone';
-const dog = 'http://localhost:8080/doggone' 
-
+var dog = 'http://localhost:3000/doggone'; 
 $('.container').hide(); 
 $('.restart').hide();
 $('.restart').hide(); 
@@ -55,15 +53,30 @@ function getInfo() {
 function displayResults(responseJson){
   console.log(responseJson); 
   console.log(responseJson.length); 
-  console.log(responseJson[1].name); 
+  console.log(responseJson[1].Name); 
   for (let i = 0; i < responseJson.length; i++) {
     $('#results-list').append(
-      `<li><p>${responseJson[i].name}</p>
-      <p>${responseJson[i].age}</p>
-      <p>${responseJson[i].gender}</p></li>`
+      `<div class = "dog-stats"><h3>${responseJson[i].Name}</h3><hr>
+      <ul>Age: ${responseJson[i].Age}</p>
+      <p>Gender: ${responseJson[i].Gender}</p><button class = "dog-button">Delete</button></div>`
     )
   }; 
   $('#results-list').show(); 
   $('#results').removeClass('hidden');
 }; 
+
+$(".dog-button").on('click', function(event) {
+  console.log("beginning delete"); 
+  event.preventDefault(); 
+  deleteItem($(event.currentTarget).closest('.dog-stats').attr('_id')); 
+}); 
+
+function deleteItem(itemId){
+  console.log("deleting"); 
+  $.ajax({
+    url: dog + '/' + itemId, 
+    method: 'delete', 
+    success: displayResults()
+  }); 
+}
 
