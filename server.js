@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser'); 
 const app = express();
 mongoose.Promise = global.Promise;
-const a = 9;
+
 //app.use(express.json());
 
 const MongoClient = require("mongodb").MongoClient;
