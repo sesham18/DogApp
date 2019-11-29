@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser'); 
 const app = express();
 mongoose.Promise = global.Promise;
-
 //app.use(express.json());
 
 const MongoClient = require("mongodb").MongoClient;
@@ -72,29 +71,24 @@ app.post("/doggone", (req, res) => {
 });
 
 app.put("/doggone/:id", (req, res) => {
-  const toUpdate = {};
-  const updateableFields = ["Name", "Gender", "Age"];
-  updateableFields.forEach(field => {
-    if (field in req.body) {
-      toUpdate[field] = req.body[field];
-  }
-});
-collection.findByIdAndUpdate(req.params.id, { $set: toUpdate }, (error, result) =>{
+  collection.updateOne(req.params.id, { $set: {Name: req.body.Name, Gender: req.body.Gender, Age: req.body.Age}}, (error, result) =>{
   if(error) {
     return res.status(500).send(error); 
   }
-  res.send(result.result)
+  res.send(result);
+  console.log("done"); 
   }); 
 });
 
 app.delete("/doggone/:id", (req, res) => {
-  collection.findByIdAndRemove(req.params.id, (error, result) =>{
+  collection.remove(req.params.id, (error, result) =>{
     if(error){
       return res.status(500).send(error); 
     }
     res.send(result.result); 
   })
 }); 
+
 
 app.get("/", (req, res) => {
   res.render("index");
