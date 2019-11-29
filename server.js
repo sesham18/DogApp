@@ -71,9 +71,9 @@ app.post("/doggone", (req, res) => {
 });
 
 app.put("/doggone/:id", (req, res) => {
-  collection.updateOne(req.params.id, { $set: {Name: req.body.Name, Gender: req.body.Gender, Age: req.body.Age}}, (error, result) =>{
+  collection.update({"_id": ObjectId(req.params.id)}, { $set: {'Name': req.body.Name, 'Gender': req.body.Gender, 'Age': req.body.Age}}, (error, result) =>{
   if(error) {
-    return res.status(500).send(error); 
+    throw error; 
   }
   res.send(result);
   console.log("done"); 
@@ -81,7 +81,7 @@ app.put("/doggone/:id", (req, res) => {
 });
 
 app.delete("/doggone/:id", (req, res) => {
-  collection.remove(req.params.id, (error, result) =>{
+  collection.deleteOne({"_id": ObjectId(req.params.id)}, (error, result) =>{
     if(error){
       return res.status(500).send(error); 
     }
