@@ -1,6 +1,6 @@
 'use strict';
 
-var dog = 'http://localhost:3000/doggone'; 
+var dog = 'https://warm-stream-27959.herokuapp.com/doggone'; 
 $('.container').hide(); 
 $('.restart').hide();
 $('.restart').hide(); 
