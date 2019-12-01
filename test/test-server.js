@@ -25,9 +25,44 @@ describe('isEqual', function() {
 );
 
 describe('Dogs', function () {
-  it('should list ALL dogs on /doggone GET', function(done) {
+  it('should list ALL dogs in the database on /doggone GET', function(done) {
     chai.request(server)
       .get('/doggone')
+      .end(function(err, res){
+        res.should.have.status(500);
+        done();
+      });
+  });
+});
+
+describe('Dogs', function () {
+  it('should add a dog to the database on /doggone POST', function(done) {
+    chai.request(server)
+      .post('/doggone')
+      .send({'Name': 'F', 'Gender': 'f', 'Age': 9})
+      .end(function(err, res){
+        res.should.have.status(500);
+        done();
+      });
+  });
+});
+
+describe('Dogs', function () {
+  it('should delete a dog from the database on /doggone/:id DELETE', function(done) {
+    chai.request(server)
+      .delete('/doggone/5da7881fcf1a8d556e15bd20')
+      .end(function(err, res){
+        res.should.have.status(500);
+        done();
+      });
+  });
+});
+
+describe('Dogs', function () {
+  it('should update an existing dog in the database on /doggone/:id UPDATE/PUT', function(done) {
+    chai.request(server)
+      .put('/doggone/5da7881fcf1a8d556e15bd05')
+      .send({'Name': 'F', 'Gender': 'f', 'Age': 9})
       .end(function(err, res){
         res.should.have.status(500);
         done();
