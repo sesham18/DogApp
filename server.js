@@ -33,7 +33,7 @@ app.listen(3000, () => {
 
 
 app.get("/doggone", (req, res) => {
-  collection.find({}).toArray((error, result) => {
+  collection.find().toArray((error, result) => {
       if(error) {
           return res.status(500).send(error);
       }
