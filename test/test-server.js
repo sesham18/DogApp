@@ -1,12 +1,14 @@
 "use strict"; 
 
-const chai = require("chai");
+
+const chai = require("chai"); 
 const chaiHttp = require("chai-http");
+const should = chai.should();
 //const app  = require("../server");
 const expect = chai.expect;
-
+var server = require('../server.js');
+server.address = 'localhost:3000/doggone'
 chai.use(chaiHttp);
-
 
 // import isEqual.js
 const isEqual = require('../isEqual');
@@ -21,3 +23,14 @@ describe('isEqual', function() {
         
   }
 );
+
+describe('Dogs', function () {
+  it('should list ALL dogs on /doggone GET', function(done) {
+    chai.request(server)
+      .get('/doggone')
+      .end(function(err, res){
+        res.should.have.status(500);
+        done();
+      });
+  });
+});

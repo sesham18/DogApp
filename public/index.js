@@ -51,32 +51,45 @@ function getInfo() {
 }; 
 
 function displayResults(responseJson){
-  console.log(responseJson); 
-  console.log(responseJson.length); 
-  console.log(responseJson[1].Name); 
   for (let i = 0; i < responseJson.length; i++) {
     $('#results-list').append(
       `<div class = "dog-stats"><h3>${responseJson[i].Name}</h3><hr>
       <ul>Age: ${responseJson[i].Age}</p>
-      <p>Gender: ${responseJson[i].Gender}</p><button class = "dog-button">Delete</button></div>`
+      <p>Gender: ${responseJson[i].Gender}</p><button class = "dog-button" id=` + i + `>Delete</button></div>`
     )
+    $(".dog-button").on('click', function(event) {
+      console.log("beginning delete"); 
+      event.preventDefault(); 
+      deleteItem($(event.currentTarget).closest('.dog-stats').attr('_id')); 
+    }); 
   }; 
   $('#results-list').show(); 
   $('#results').removeClass('hidden');
 }; 
 
+/*
 $(".dog-button").on('click', function(event) {
   console.log("beginning delete"); 
   event.preventDefault(); 
   deleteItem($(event.currentTarget).closest('.dog-stats').attr('_id')); 
 }); 
+*/
 
 function deleteItem(itemId){
   console.log("deleting"); 
+  // add error handling
+  fetch(dog + '/' + itemId, {
+    method: 'delete',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({_id: itemId})
+  });
+  getInfo();
+  /*
   $.ajax({
     url: dog + '/' + itemId, 
     method: 'delete', 
     success: displayResults()
-  }); 
+  });
+  */ 
 }
 
