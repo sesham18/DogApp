@@ -1,11 +1,13 @@
 'use strict';
 
-var dog = 'https://warm-stream-27959.herokuapp.com/doggone'; 
+var dog = 'http://localhost:3000/doggone'; 
 $('.container').hide(); 
 $('.restart').hide();
 $('.restart').hide(); 
-$('.dog-details').hide(); 
+// $('.dog-details').hide(); 
 $('.dog-db').hide(); 
+$('.dog-db-deletion').hide();
+$('.dog-input-container').hide();
 
 $('#get-start').on('click', function(){
     $('.instructions').hide(); 
@@ -13,11 +15,14 @@ $('#get-start').on('click', function(){
     $('.container').hide(); 
     getInfo(); 
     $('.dog-db').show();    
+    $('.dog-db-deletion').show();
 });
 
 $('.dog-enter').on('click', function(){
   $('.dog-details').show(); 
   $('.dog-db').hide(); 
+  $('.dog-db-deletion').hide();
+  $('.dog-input-container').show();
 }); 
 
 $('#login').on('click', function(){
@@ -33,6 +38,16 @@ $('.home').on('click', function(){
     $('.dog-details').hide(); 
     $('.contain-results').hide(); 
     $('.dog-db').hide(); 
+});
+
+$('#submit-deletion').on('click', function() {
+  deleteItem($('#input').val());
+});
+
+$('#submit-dog').on('click', function() {
+  addItem($('#input-dog-name').val(),
+          $('#input-dog-sex').val(),
+          $('#input-dog-age').val())
 });
 
 function getInfo() { 
@@ -55,13 +70,8 @@ function displayResults(responseJson){
     $('#results-list').append(
       `<div class = "dog-stats"><h3>${responseJson[i].Name}</h3><hr>
       <ul>Age: ${responseJson[i].Age}</p>
-      <p>Gender: ${responseJson[i].Gender}</p><button class = "dog-button" id=` + i + `>Delete</button></div>`
+      <p>Gender: ${responseJson[i].Gender}</p>`
     )
-    $(".dog-button").on('click', function(event) {
-      console.log("beginning delete"); 
-      event.preventDefault(); 
-      deleteItem($(event.currentTarget).closest('.dog-stats').attr('_id')); 
-    }); 
   }; 
   $('#results-list').show(); 
   $('#results').removeClass('hidden');
@@ -83,13 +93,14 @@ function deleteItem(itemId){
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({_id: itemId})
   });
-  getInfo();
-  /*
-  $.ajax({
-    url: dog + '/' + itemId, 
-    method: 'delete', 
-    success: displayResults()
-  });
-  */ 
+  location.reload();
 }
 
+function addItem(name, gender, age) {
+  fetch(dog, {
+    method: 'post',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({Name: name, Gender: gender, Age: age})
+  });
+  location.reload();
+}

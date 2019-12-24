@@ -46,23 +46,23 @@
             <button role="button" type="submit">Submit</button>
         </form>
     </div>
-
-    <div class = "dog-details" aria-live = "polite">
-        <form role = "form" class="dogdetails">
-            <fieldset name="dog">
-                <label for= "name" required>Name</label>
-                <input type="name" name="name" id="name" placeholder="Spot" title="Name"required>
-
-                <label for= "age" required>Age</label>
-                <input type="age" name="age" id="age" placeholder="5" title="age"required>
-
-                <label for= "sec" required>Sex</label>
-                <input type="sex" name="sex" id="sex" placeholder="male" title="sex"required>
-            </fieldset>
-            <button class="submit-details">Submit</button>
-        </form>
+    
+    <div class="dog-input-container" aria-live = "polite">
+        <form id="dog-input">
+            <h3>Dog Name</h1>
+            <input id="input-dog-name" type="text" class="dog-input" value="John"/>
+            <h3>Dog Age</h3>
+            <input id="input-dog-age" type="number" class="dog-input" value="5"/>
+            <h3>Dog Sex</h3>
+            <input id="input-dog-sex" type="text" class="dog-input" value="Male"/>
+            <button id="submit-dog">Enter</button>    
+        </form>    
     </div>
 
+    <div class = "dog-db-deletion" aria-live = "polite">
+        <input id="input" type="text" class="dog-deletion" value=""/> 
+        <button id="submit-deletion">Approve</button>
+    </div>
 
     <div class = "dog-db" aria-live="polite">
         <section id = "results" class = "hidden">
