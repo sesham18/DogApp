@@ -25,8 +25,8 @@ app.listen(3000, () => {
         if(error) {
             throw error;
         }
-        database = client.db('doggone-app');
-        collection = database.collection("dogs");
+        database = client.db('doggone');
+        collection = database.collection('doglist');
         console.log("Connected to doggone-app");
     });
 });
@@ -52,7 +52,7 @@ app.get("/doggone/:id", (req, res) => {
 
 
 app.post("/doggone", (req, res) => {
-  const requiredFields = ['Name', 'Gender', 'Age'];
+  const requiredFields = ['Name', 'Gender', 'Age', 'Breed'];
   for (let i = 0; i<requiredFields.length; i++){
     const field = requiredFields[i]; 
     if (!(field in req.body)) {
@@ -71,7 +71,7 @@ app.post("/doggone", (req, res) => {
 });
 
 app.put("/doggone/:id", (req, res) => {
-  collection.update({"_id": ObjectId(req.params.id)}, { $set: {'Name': req.body.Name, 'Gender': req.body.Gender, 'Age': req.body.Age}}, (error, result) =>{
+  collection.update({"_id": ObjectId(req.params.id)}, { $set: {'Name': req.body.Name, 'Gender': req.body.Gender, 'Age': req.body.Age, 'Breed': req.body.Breed}}, (error, result) =>{
   if(error) {
     throw error; 
   }
@@ -132,7 +132,6 @@ function closeServer() {
     });
   });
 }
-
 
 if (require.main === module) {
   runServer(DATABASE_URL).catch(err => console.error(err));

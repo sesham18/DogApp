@@ -26,12 +26,11 @@
     <div class="home"><p>Home</p></div>
 
     <div class="instructions" aria-live = "polite">
-        <h2>Are you an shelter administrator looking to get awareness about adoptable pups in your area? Let doggone help you </h2>
+        <h1>Are you an shelter administrator seeking information about adoptable pups in your area? Let doggone help you </h1>
     </div>
 
     <div class = "choose-instructions" aria-live = "polite">
-        <button role="button" class="get-start" id = "get-start">Get Started</button>
-        
+        <button role="button" class="get-start" id = "get-start">Get Started</button>   
     </div>
     
     <div class = "container" aria-live = "polite">
@@ -49,29 +48,65 @@
     
     <div class="dog-input-container" aria-live = "polite">
         <form id="dog-input">
-            <h3>Dog Name</h1>
+            <h3>Dog Name</h3>
             <input id="input-dog-name" type="text" class="dog-input" value="John"/>
+            <h3>Dog Breed</h3>
+            <input id="input-dog-breed" type="text" class="dog-input" value="Cockapoo"/>
             <h3>Dog Age</h3>
             <input id="input-dog-age" type="number" class="dog-input" value="5"/>
             <h3>Dog Sex</h3>
-            <input id="input-dog-sex" type="text" class="dog-input" value="Male"/>
+            <select id="input-dog-sex">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
             <button id="submit-dog">Enter</button>    
         </form>    
     </div>
 
-    <div class = "dog-db-deletion" aria-live = "polite">
-        <input id="input" type="text" class="dog-deletion" value=""/> 
-        <button id="submit-deletion">Approve</button>
+
+    <div class="dog-input-container-update" aria-live = "polite">
+        <form id="dog-input-update">
+            <h3>Dog Name</h3>
+            <input id="input-dog-name-2" type="text" class="dog-input-2" value=""/>
+            <h3>Dog Breed</h3>
+            <input id="input-dog-breed-2" type="text" class="dog-input-2" value=""/>
+            <h3>Dog Age</h3>
+            <input id="input-dog-age-2" type="number" class="dog-input-2" value=""/>
+            <h3>Dog Sex</h3>
+            <select id="input-dog-sex-2">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <button id="submit-dog-2">Enter</button>    
+        </form>    
+    </div>
+    
+    <div class = "dog-db-boxes">
+        <div class = "dog-db-addition" aria-live = "polite">
+            <h3>Add a dog to the doggone database</h3>
+            <button class = "dog-enter" id = "dog-enter">Add a dog</button>
+        </div>
+
+        <div class = "dog-db-update" aria-live = "polite">
+            <h3>Update the details of a dog </h3>
+            <input id="input-one" type="text" class="dog-update" value=""/> 
+            <button id="submit-update">Update</button>
+            <p id="update-error">Please enter a valid id!</p>
+        </div>
+
+        <div class = "dog-db-deletion" aria-live = "polite">
+            <h3> Add the ID of the dog to remove it from the database.</h3>
+            <input id="input-two" type="text" class="dog-deletion" value=""/> 
+            <button id="submit-deletion">Delete</button>
+        </div>
     </div>
 
     <div class = "dog-db" aria-live="polite">
         <section id = "results" class = "hidden">
-            <h2>Dogs in the database </h2>
-                <button class = "dog-enter" id = "dog-enter">Add a dog</button>
-                <ul id = "results-list"></ul>
+            <h2>Dogs in the Database</h2>
+            <ul id = "results-list"></ul>
         </section>
     </div>
-
 
     </main>
     <script src="index.js"></script>

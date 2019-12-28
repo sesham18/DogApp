@@ -1,22 +1,20 @@
 * {
     box-sizing: border-box;
-   }
+}
    
 body {
     background-color: rgb(85, 149, 201);
     color: rgb(241, 238, 233); 
     font-family: 'Work Sans', sans-serif;
     text-align: center; 
-    margin: 10px; 
 }
    
 .title h1{
-    display: block; 
-    height: 50px; 
+    display: block;
+    height: 100px; 
     margin-right: auto; 
     margin-left: auto;
     margin-top: 30px; 
-    margin-bottom: 30px; 
     font-family: 'Indie Flower', cursive;
     text-align: center;
     font-size: 50px;
@@ -207,74 +205,69 @@ fieldset{
     font-size: 15px; 
 }
 
-.dog-details{
-    width: 300px;
-    height: 300px; 
-    padding-left:10px;
-    padding-right:10px;
-    padding-top: 10px; 
-    padding-bottom: 10px; 
-    background-color:rgb(212, 229, 243); 
-    border-radius:5px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;  
-}
-
-.dog-details h1{
-    font-family: 'Work Sans', sans-serif;
-    text-align: center;
-    size: 20px;
-    color: rgb(57, 93, 122); 
-    
-}
-.dog-details label{ 
-    font-family: 'Work Sans', sans-serif;
-    color: rgb(57, 93, 122); 
-    text-align: left; 
-    font-size: 10px;
-    margin-bottom: 5px; 
-    margin-top: 5px;
-    display: block;
-}
-
-fieldset{
-      border: none;
-      
-}
-.dog-details input{ 
-    display: block;
-    width: 200px;  
-    height: 50px; 
-    margin-right: auto;
-    margin-left: auto;  
-    margin-top:10px;
-    margin-bottom:5px;
-    font-family: 'Work Sans', sans-serif;
-    font-size: 10px; 
-    background-color:rgb(241, 238, 233); 
-    color: rgb(145, 141, 135);
-}
-  
-.dog-details .dog-delete button{
-    width: 100px; 
-    position:relative;
-    margin-left: 5px;
-    margin-top: 5px;
-    float: center; 
-    background-color:rgb(79, 110, 134);  
-    height: 25px;   
-    font-family: 'Work Sans', sans-serif;
-    font-size: 10px;
-    color: rgb(241, 238, 233); 
-    border-radius: 5px; 
-}
-
 #results-list{
+    text-align: center; 
+}
+
+.dog-db h2 {
+    font-size: 30px; 
+    padding-top: 30px; 
+}
+.dog-stats-element {
+    display: inline-block;
+    color: rgb(195, 223, 236); 
+    background-color: whitesmoke;
+    text-align: center;
+    font-size: 10px;
+    border: 5px solid;
+    margin: 10px; 
+    padding: 5px;    
+}
+
+.dog-stats-element p{
+    color: black; 
     font-size: 10px; 
-    margin-bottom: 2px; 
-    text-align: left; 
+}
+
+.dog-stats-element h3{
+    color: black; 
+    font-size: 20px;  
+}
+
+img.center {
+    display: center; 
+
 }
 
 
-   
+.dog-db-boxes {
+    width: 100%; 
+}
+
+.dog-db-deletion {
+    float: right; 
+    width: 450px;   
+    border: 3px solid;
+    height: 150px;
+    font-size: 18px; 
+}
+
+.dog-db-addition{
+    float: left; 
+    width: 450px; 
+    border: 3px solid; 
+    height: 150px; 
+    font-size: 18px;
+}
+
+.dog-db-update{
+    display: inline-block; 
+    width: 450px;   
+    border: 3px solid;
+    height: 150px;  
+    font-size: 18px;
+}
+
+#update-error {
+    color: red;
+}
