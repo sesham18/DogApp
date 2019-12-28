@@ -30,12 +30,30 @@ body {
     right: 50px; 
     cursor: default; 
 }
+.login {
+    position: absolute; 
+    width: 50px; 
+    height: 50px; 
+    float: right; 
+    top: 18px; 
+    right: 120px; 
+    cursor: default; 
+}
+
 .home p{
     text-align: center;
     background-color: rgb(79, 110, 134);
     border-radius: 3px;
     color:rgb(241, 238, 233);
     font-size: 10px;
+}
+
+.login p{ 
+    text-align: center;
+    background-color: rgb(79, 110, 134);
+    border-radius: 3px;
+    color:rgb(241, 238, 233);
+    font-size: 10px; 
 }
 
 

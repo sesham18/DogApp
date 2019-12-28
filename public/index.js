@@ -18,14 +18,18 @@ $('#update-error').hide();
 //On clickng the "get started" button 
 $('#get-start').on('click', function(){
     $('.instructions').hide(); 
+    $('.login').show(); 
     $('.choose-instructions').hide(); 
     $('.container').hide(); 
     getInfo(); 
-    $('.dog-db').show();    
-    $('.dog-db-deletion').show();
-    $('.dog-db-addition').show();
-    $('.dog-db-update').show();  
+    $('.dog-db').show();  
+
+    $('.dog-db-deletion').hide();
+    $('.dog-db-addition').hide();
+    $('.dog-db-update').hide();  
 });
+
+
 
 //On clicking 'Adding a dog' feature 
 $('.dog-enter').on('click', function(){
@@ -38,10 +42,23 @@ $('.dog-enter').on('click', function(){
 }); 
 
 //On clicking the login button 
-$('#login').on('click', function(){
+$('.login').on('click', function(){
     $('.instructions').hide(); 
     $('.choose-instructions').hide(); 
     $('.container').show(); 
+    $('.dog-db').hide(); 
+});
+//On clicking login button 
+$('#loginbutton').on('click', function(){
+  $('.dog-db-update').show(); 
+  $('.dog-db-addition').show();  
+  $('.dog-db').show(); 
+  $('.instructions').hide(); 
+  $('.choose-instructions').hide(); 
+  $('.container').hide();
+  $('.dog-db-deletion').show();
+  $('.dog-input-container').hide();
+
 });
 
 //On clicking the home button 
