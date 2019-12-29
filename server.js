@@ -52,7 +52,7 @@ app.get("/doggone/:id", (req, res) => {
 
 
 app.post("/doggone", (req, res) => {
-  const requiredFields = ['Name', 'Gender', 'Age', 'Breed'];
+  const requiredFields = ['Name', 'Gender', 'Age', 'Breed', 'URL'];
   for (let i = 0; i<requiredFields.length; i++){
     const field = requiredFields[i]; 
     if (!(field in req.body)) {
@@ -71,7 +71,7 @@ app.post("/doggone", (req, res) => {
 });
 
 app.put("/doggone/:id", (req, res) => {
-  collection.update({"_id": ObjectId(req.params.id)}, { $set: {'Name': req.body.Name, 'Gender': req.body.Gender, 'Age': req.body.Age, 'Breed': req.body.Breed}}, (error, result) =>{
+  collection.update({"_id": ObjectId(req.params.id)}, { $set: {'Name': req.body.Name, 'Gender': req.body.Gender, 'Age': req.body.Age, 'Breed': req.body.Breed, 'URL': req.body.URL}}, (error, result) =>{
   if(error) {
     throw error; 
   }
@@ -94,6 +94,18 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.post('/doggone/login', (req, res) => {
+  const requiredFields = ['un', 'pw'];
+  for (let i = 0; i<requiredFields.length; i++) {
+    const field = requiredFields[i]; 
+    if (!(field in req.body)) {
+      const message = `Missing \`${field}\` in request body`;
+      return res.send({'status': false});
+    }
+  }
+  console.log('Received UN: ' + req.body.un + ' PW: ' + req.body.pw);
+  res.send(JSON.stringify({'status': (req.body.un == 'admin@doggone.org' && req.body.pw == '$dOgpw0')}));
+})
 
 let server;  
 

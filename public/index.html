@@ -19,50 +19,50 @@
         <h1>doggone</h1>
     </div>
     
-    <div class="help-tip">
-        <p>You can continue anonymously by hitting the 'Get Started' button or by logging in.</p>
-    </div>
+    <div class="home" aria-level = "polite"><button role="button" class="home-button" id = "home-button">Home</button></div>
 
-    <div class="home"><p>Home</p></div>
-
-    <div class="login"><p>Log In</p></div>
+    <div class="login" aria-level = "polite"><button role = 'button' class="login-button" id = "login-button">Login</button></div>
 
     <div class="instructions" aria-live = "polite">
-        <h1>Are you an shelter administrator seeking information about adoptable pups in your area? Let doggone help you </h1>
+        <h1>Let doggone help you find the most suitable dog to fit your lifestyle needs. 
+            <br>Shelter Adminstartors, please login to manage your dogs.</br></h1>
     </div>
 
     <div class = "choose-instructions" aria-live = "polite">
-        <button role="button" class="get-start" id = "get-start">Get Started</button>   
+        <button role="button" class="get-start" id = "get-start">View Dogs</button>   
     </div>
     
     <div class = "container" aria-live = "polite">
-        <form role="form" class="signup" action="/signup/" method="post">
+        <form role="form" class="signup">
             <h1>Sign Up</h1>
             <fieldset name="contactinfo">
-                <label for="email" required>Email Address</label>
+                <label for="email" id ="email-label" required>Email Address</label>
                 <input type="email"name="email" id="email" placeholder="seattlehumane@aspca.org" title="Email Address"required/>
-                <label for="password"required>Password</label>
+                <label for="password" id = "pass-label" required>Password</label>
                 <input type="password" name="password" id="password" placeholder="doggonepass"title="Password needed" required/>
             </fieldset>
             <button role="button" type="submit" id = 'loginbutton'>Submit</button>
+            <p id="login-error" class="error">Incorrect login!</p>
         </form>
     </div>
     
     <div class="dog-input-container" aria-live = "polite">
         <form id="dog-input">
             <h3>Dog Name</h3>
-            <input id="input-dog-name" type="text" class="dog-input" value="John"/>
+            <input id="input-dog-name" type="text" class="dog-input" value=""/>
             <h3>Dog Breed</h3>
-            <input id="input-dog-breed" type="text" class="dog-input" value="Cockapoo"/>
+            <input id="input-dog-breed" type="text" class="dog-input" value=""/>
             <h3>Dog Age</h3>
-            <input id="input-dog-age" type="number" class="dog-input" value="5"/>
+            <input id="input-dog-age" type="number" class="dog-input" value=""/>
             <h3>Dog Sex</h3>
             <select id="input-dog-sex">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
-            <button id="submit-dog">Enter</button>    
-        </form>    
+            <h3>Dog Image URL</h3>
+            <input id="input-dog-image" type="text" class="dog-input" value=""/>
+        </form> 
+        <button id="submit-dog">Enter</button>           
     </div>
 
 
@@ -79,27 +79,30 @@
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
+            <h3>Dog Image URL</h3>
+            <input id="input-dog-image-2" type="text" class="dog-input-2" value=""/>
             <button id="submit-dog-2">Enter</button>    
         </form>    
     </div>
     
     <div class = "dog-db-boxes">
-        <div class = "dog-db-addition" aria-live = "polite">
+        <div class = "dog-db-addition">
             <h3>Add a dog to the doggone database</h3>
             <button class = "dog-enter" id = "dog-enter">Add a dog</button>
         </div>
 
-        <div class = "dog-db-update" aria-live = "polite">
+        <div class = "dog-db-update" >
             <h3>Update the details of a dog </h3>
             <input id="input-one" type="text" class="dog-update" value=""/> 
             <button id="submit-update">Update</button>
-            <p id="update-error">Please enter a valid id!</p>
+            <p id="update-error" class="error">Please enter a valid id!</p>
         </div>
 
-        <div class = "dog-db-deletion" aria-live = "polite">
-            <h3> Add the ID of the dog to remove it from the database.</h3>
+        <div class = "dog-db-deletion">
+            <h3> Add the ID of the dog to remove.</h3>
             <input id="input-two" type="text" class="dog-deletion" value=""/> 
             <button id="submit-deletion">Delete</button>
+            <p id="delete-error" class="error">Please enter a valid id!</p>
         </div>
     </div>
 

@@ -14,6 +14,8 @@ $('.dog-db-addition').hide();
 $('.dog-db-update').hide(); 
 $('.dog-input-container-update').hide(); 
 $('#update-error').hide();
+$('#delete-error').hide();
+$('#login-error').hide();
 
 //On clickng the "get started" button 
 $('#get-start').on('click', function(){
@@ -23,13 +25,10 @@ $('#get-start').on('click', function(){
     $('.container').hide(); 
     getInfo(); 
     $('.dog-db').show();  
-
     $('.dog-db-deletion').hide();
     $('.dog-db-addition').hide();
     $('.dog-db-update').hide();  
 });
-
-
 
 //On clicking 'Adding a dog' feature 
 $('.dog-enter').on('click', function(){
@@ -41,26 +40,71 @@ $('.dog-enter').on('click', function(){
   $('.dog-db-addition').hide(); 
 }); 
 
-//On clicking the login button 
+//On clicking the login button at top left of the screen 
 $('.login').on('click', function(){
     $('.instructions').hide(); 
     $('.choose-instructions').hide(); 
     $('.container').show(); 
     $('.dog-db').hide(); 
-});
-//On clicking login button 
-$('#loginbutton').on('click', function(){
-  $('.dog-db-update').show(); 
-  $('.dog-db-addition').show();  
-  $('.dog-db').show(); 
-  $('.instructions').hide(); 
-  $('.choose-instructions').hide(); 
-  $('.container').hide();
-  $('.dog-db-deletion').show();
-  $('.dog-input-container').hide();
-
+    $('.dog-input-container').hide();
+    $('.dog-db-update').hide(); 
+    $('.dog-db-addition').hide(); 
+    $('.dog-db-deletion').hide();
 });
 
+//On clicking login button for username details 
+$('#loginbutton').on('click', function() {
+  fetch(dog + '/login', {
+    method: 'post',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({un: $('#email').val(), pw: $('#password').val()})
+  }).then(response => response.json())
+  .then(responseJson =>  {
+    console.log(responseJson);
+    if (Boolean(responseJson.status) == true) {
+      $('#login-error').hide();
+      $('.signup').hide();
+      $('.dog-db-boxes').show();
+      $('#results-list').empty();  
+      getInfo();
+      $('.dog-db').show(); 
+      $('#results-list').show();
+    } else {
+      $('#login-error').show();
+    }
+  }) 
+});
+/*
+  fetch(dog + '/login', {
+    method: 'post',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({un: $('#email').val(), pw: $('#password').val()})
+  }).then(response => {
+    if(response.ok) {
+      return response.json(); 
+    }
+    throw new Error(response.statusText); 
+  })
+  .then(responseJson => { function() {
+    console.log(responseJson);
+    if (responseJson.status == true) {
+      $('#login-error').hide();
+      $('.dog-db-update').show(); 
+      $('.dog-db-addition').show();  
+      getInfo();
+      $('.dog-db').show(); 
+      $('.instructions').hide(); 
+      $('.choose-instructions').hide(); 
+      $('.container').hide();
+      $('.dog-db-deletion').show();
+      $('.dog-input-container').hide(); 
+    } else {
+      $('#login-error').show();
+    }
+  } 
+}
+}
+*/
 //On clicking the home button 
 $('.home').on('click', function(){
     $('.instructions').show(); 
@@ -80,6 +124,7 @@ function updateFields(respJson) {
   $('#input-dog-breed-2').val(respJson.Breed);
   $('#input-dog-age-2').val(respJson.Age);
   $('#input-dog-sex-2').val(respJson.Gender);
+  $('#input-dog-image-2').val(respJson.URL)
 }
 
 //Update Block 
@@ -105,7 +150,8 @@ $('#submit-update').on('click', function() {
         $('#input-dog-name-2').val(),
         $('#input-dog-sex-2').val(),
         $('#input-dog-age-2').val(),
-        $('#input-dog-breed-2').val());
+        $('#input-dog-breed-2').val(),
+        $('#input-dog-image-2').val());
         
         $('.dog-input-container-update').hide();
         $('#results-list').hide();
@@ -119,14 +165,22 @@ $('#submit-update').on('click', function() {
 });
 
 $('#submit-deletion').on('click', function() {
-  $('#' + $('#input-two').val()).css('color', 'red');
-  setTimeout(() => {deleteItem($('#input-two').val());}, 2000);
+  let id = $('#input-two').val();
+  if ($('#' + id).length) {
+    $('#delete-error').hide();
+    $('#' + $('#input-two').val()).css('color', 'red');
+    setTimeout(() => {deleteItem($('#input-two').val());}, 2000);
+  } else {
+    $('#delete-error').show();   
+  } 
 });
 
 $('#submit-dog').on('click', function() {
   addItem($('#input-dog-name').val(),
           $('#input-dog-sex').val(),
-          $('#input-dog-age').val())
+          $('#input-dog-age').val(),
+          $('#input-dog-breed').val(),
+          $('#input-dog-image').val())
 });
 
 function getInfo() { 
@@ -186,20 +240,21 @@ function deleteItem(itemId){
   $('#results-list').show();
 }
 
-function addItem(name, gender, age, breed) {
+
+function addItem(name, gender, age, breed, url) {
   fetch(dog, {
     method: 'post',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({Name: name, Gender: gender, Age: age, Breed: breed})
+    body: JSON.stringify({Name: name, Gender: gender, Age: age, Breed: breed, URL: url})
   });
   // window.location.reload();
 }
 
-function updateItem(id, name, gender, age, breed) {
+function updateItem(id, name, gender, age, breed, url) {
   fetch(dog + '/' + id, {
     method: 'put',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({_id: id, Name: name, Gender: gender, Age: age, Breed: breed})
+    body: JSON.stringify({_id: id, Name: name, Gender: gender, Age: age, Breed: breed, URL: url})
   });
   /*
   $('.dog-input-container-update').hide();
