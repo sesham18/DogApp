@@ -345,3 +345,8 @@ img.center {
 .error {
     color: red;
 }
+
+.title-login {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 20px;
+}
