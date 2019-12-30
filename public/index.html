@@ -21,7 +21,7 @@
     
     <div class="home" aria-level = "polite"><button role="button" class="home-button" id = "home-button">Home</button></div>
 
-    <div class="login" aria-level = "polite"><button role = 'button' class="login-button" id = "login-button">Login</button></div>
+    <div class="login" aria-level = "polite"><button role = 'button' class="login-button" onclick="window.location='login.html'">Login</button></div>
 
     <div class="instructions" aria-live = "polite">
         <h1>Let doggone help you find the most suitable dog to fit your lifestyle needs. 
@@ -30,20 +30,6 @@
 
     <div class = "choose-instructions" aria-live = "polite">
         <button role="button" class="get-start" id = "get-start">View Dogs</button>   
-    </div>
-    
-    <div class = "container" aria-live = "polite">
-        <form role="form" class="signup">
-            <h1>Sign Up</h1>
-            <fieldset name="contactinfo">
-                <label for="email" id ="email-label" required>Email Address</label>
-                <input type="email"name="email" id="email" placeholder="seattlehumane@aspca.org" title="Email Address"required/>
-                <label for="password" id = "pass-label" required>Password</label>
-                <input type="password" name="password" id="password" placeholder="doggonepass"title="Password needed" required/>
-            </fieldset>
-            <button role="button" type="submit" id = 'loginbutton'>Submit</button>
-            <p id="login-error" class="error">Incorrect login!</p>
-        </form>
     </div>
     
     <div class="dog-input-container" aria-live = "polite">
@@ -114,6 +100,6 @@
     </div>
 
     </main>
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Doggone Login</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main role = "main">
+
+    <div class = "title" aria-live = "polite">
+        <h1>Login</h1>
+    </div>
+    <button role="button" class="home-button" id ="home-button-login" onclick="window.location='index.html'">Home</button>
+    <div class = "container" aria-live = "polite">
+        <form role="form" class="signup">
+            <fieldset name="contactinfo">
+                <label for="email" id ="email-label" required>Email Address</label>
+                <input type="email"name="email" id="email" placeholder="seattlehumane@aspca.org" title="Email Address" value="admin@doggone.org" required/>
+                <label for="password" id = "pass-label" required>Password</label>
+                <input type="password" name="password" id="password" placeholder="doggonepass"title="Password needed" value="dogpw0" required/>
+            </fieldset>
+            <button role="button" type="submit" id = 'loginbutton'>Submit</button>
+            <p id="login-error" class="error">Incorrect login!</p>
+        </form>
+    </div>
+
+    </main>
+    <script src="login.js" type="module"></script>
+</body>
+</html>

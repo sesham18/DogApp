@@ -20,6 +20,8 @@ app.use(express.static('public/css/'));
 
 var database, collection;
 
+var auth = false;    // default state
+
 app.listen(3000, () => {
     MongoClient.connect(DATABASE_URL, { useNewUrlParser: true }, (error, client) => {
         if(error) {
@@ -94,18 +96,20 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post('/doggone/login', (req, res) => {
-  const requiredFields = ['un', 'pw'];
-  for (let i = 0; i<requiredFields.length; i++) {
-    const field = requiredFields[i]; 
-    if (!(field in req.body)) {
-      const message = `Missing \`${field}\` in request body`;
-      return res.send({'status': false});
-    }
-  }
-  console.log('Received UN: ' + req.body.un + ' PW: ' + req.body.pw);
-  res.send(JSON.stringify({'status': (req.body.un == 'admin@doggone.org' && req.body.pw == '$dOgpw0')}));
+app.get("/login", (req, res) => {
+  res.sendFile(__dirname + "/public/login.html");
+  res.sendFile(__dirname + "/public/login.js");
+});
+
+app.get("/auth", (req, res) => {
+  res.send(auth);
 })
+
+app.post("/auth", (req, res) => {
+  auth = req.body.auth;
+  console.log(auth);
+  res.send();
+});
 
 let server;  
 

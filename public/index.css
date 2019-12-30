@@ -189,42 +189,16 @@ img.center {
 
 }
 
-.dog-db-boxes {
-    position: inline-block;  
-    overflow: hidden; 
-    width: 95%; 
-}
-
 .dog-db-addition{
-    display: block; 
-    overflow: hidden; 
-    width: 30%;  
-    float: left; 
     text-align: center;  
-    border: 1px solid; 
-    height: 150px; 
     font-size: 15px;
 }
 
 .dog-db-update{
-    display: block; 
-    overflow: hidden;
-    width: 30%;   
-    text-align: center;
-    border: 1px solid;
-    height: 150px;  
     font-size: 15px;
 }
 
-.dog-db-deletion {
-    display: block; 
-    top: 85px; 
-    overflow: hidden;  
-    float: right; 
-    width: 30%;   
-    text-align: center; 
-    border: 1px solid;
-    height: 150px;
+.dog-db-deletion { 
     font-size: 15px; 
 }
 
