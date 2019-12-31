@@ -383,7 +383,7 @@ img.center {
 }
 
 
-/*.contact{
+.contact{
     font-size: 8px; 
     display: block;
     position: fixed; 
@@ -393,4 +393,4 @@ img.center {
     color: white;
     background-color: rgb(109, 158, 197);
     text-align: center;
-}*/
+}

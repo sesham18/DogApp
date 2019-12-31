@@ -26,6 +26,7 @@ $('.dog-input-container-update').hide();
 $('#update-error').hide();
 $('#delete-error').hide();
 $('#login-error').hide();
+$('.contact').hide();
 
 //On clickng the "get started" button 
 $('#get-start').on('click', function(){
@@ -33,6 +34,7 @@ $('#get-start').on('click', function(){
     $('.login').show(); 
     $('.choose-instructions').hide(); 
     $('.container').hide(); 
+    $('.contact').show();
     getInfo(); 
     $('.dog-db').show();
     getAuthState().then(data => {
@@ -63,6 +65,7 @@ $('.dog-enter').on('click', function(){
   $('.dog-input-container').show();
   $('.dog-db').hide();
   showOrHideBoxes('hide');
+  $('.contact').hide();
 }); 
 
 //On clicking the home button 
@@ -75,6 +78,7 @@ $('.home').on('click', function(){
     $('.dog-db').hide(); 
     $('.dog-input-container').hide();
     showOrHideBoxes('hide');
+    $('.contact').hide();
 });
 
 function updateFields(respJson) {
@@ -93,6 +97,7 @@ $('#submit-update').on('click', function() {
     $('#' + id_dog).css('color', 'green');
     $('.dog-input-container-update').show(); 
     showOrHideBoxes('hide');
+    $('.contact').hide();
     
     fetch(dog + '/' + id_dog).then(response => {
       if (response.ok) {
@@ -116,6 +121,7 @@ $('#submit-update').on('click', function() {
       $('.dog-input-container-update').hide();
       showOrHideBoxes('show');    // obviously, they are authorized
       $('#input-one').val('');
+      $('.contact').show();
       return false; 
     });
 

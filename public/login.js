@@ -1,5 +1,3 @@
-var whereToReturn = 'http://localhost:3000';
-
 import {sendAuthState, getAuthState, authUrl} from './index.js';
 
 // load container
