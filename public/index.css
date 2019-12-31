@@ -386,8 +386,10 @@ img.center {
 .contact{
     font-size: 8px; 
     display: block;
+    position: fixed; 
     left: 0;
     bottom: 0;
     color: white;
+    background-color: rgb(109, 158, 197);
     text-align: center;
 }
