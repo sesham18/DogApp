@@ -382,17 +382,12 @@ img.center {
     border: none;
 }
 
-.footer h3{
-    font-size: 8px; 
-}
 
-.footer{
+.contact{
     font-size: 8px; 
-    position: fixed;
+    display: block;
     left: 0;
     bottom: 0;
-    width: 100%;
-    background-color: rgb(124, 174, 216);
     color: white;
     text-align: center;
 }
