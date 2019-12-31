@@ -393,4 +393,6 @@ img.center {
     color: white;
     background-color: rgb(109, 158, 197);
     text-align: center;
+    margin: 0px;
+    padding: 0px;
 }
