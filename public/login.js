@@ -13,6 +13,8 @@ $('#loginbutton').on('click', function() {
             if (!data) {
                 sendAuthState(true).then(console.log('Now authenticated...'));
                 window.location = 'index.html';
+            } else {
+                window.location = 'index.html';
             }
         });
         return false;    // protect against random reloads
