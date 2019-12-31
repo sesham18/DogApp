@@ -1,7 +1,7 @@
 'use strict';
 
-var dog = 'https://doggone-app-domain.herokuapp.com/doggone';
-export var authUrl = 'https://doggone-app-domain.herokuapp.com/auth';
+var dog = 'http://www.doggone.info/doggone';
+export var authUrl = 'http://www.doggone.info/auth';
 
 export function sendAuthState(state) {
   return fetch(authUrl, {
