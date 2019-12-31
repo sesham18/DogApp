@@ -24,3 +24,7 @@ $('#loginbutton').on('click', function() {
         return false; 
     }
 })
+
+$('#button-signout').on('click', function() {
+    sendAuthState(false).then(resp => {window.location = 'index.html'});
+})
