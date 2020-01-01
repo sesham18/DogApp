@@ -1,7 +1,7 @@
 'use strict';
 
-var dog = 'http://www.doggone.info/doggone';
-export var authUrl = 'http://www.doggone.info/auth';
+var dog = 'http://localhost:3000/doggone';
+export var authUrl = 'http://localhost:3000/auth';
 
 export function sendAuthState(state) {
   return fetch(authUrl, {
@@ -26,7 +26,7 @@ $('.dog-input-container-update').hide();
 $('#update-error').hide();
 $('#delete-error').hide();
 $('#login-error').hide();
-$('.contact').hide();
+$('.contact').show();
 
 //On clickng the "get started" button 
 $('#get-start').on('click', function(){
@@ -34,7 +34,7 @@ $('#get-start').on('click', function(){
     $('.login').show(); 
     $('.choose-instructions').hide(); 
     $('.container').hide(); 
-    $('.contact').show();
+    $('.contact').hide();
     getInfo(); 
     $('.dog-db').show();
     getAuthState().then(data => {
@@ -69,7 +69,7 @@ $('.dog-enter').on('click', function(){
 }); 
 
 //On clicking the home button 
-$('.home').on('click', function(){
+$('#home-button').on('click', function(){
     $('.instructions').show(); 
     $('.choose-instructions').show(); 
     $('.container').hide(); 
@@ -78,7 +78,10 @@ $('.home').on('click', function(){
     $('.dog-db').hide(); 
     $('.dog-input-container').hide();
     showOrHideBoxes('hide');
-    $('.contact').hide();
+    $('.dog-input-container-update').hide();
+    $('.contact').show();
+    $('#input-one').val('');
+    $('#input-two').val('');
 });
 
 function updateFields(respJson) {
@@ -121,7 +124,7 @@ $('#submit-update').on('click', function() {
       $('.dog-input-container-update').hide();
       showOrHideBoxes('show');    // obviously, they are authorized
       $('#input-one').val('');
-      $('.contact').show();
+      $('.contact').hide();
       return false; 
     });
 
@@ -193,7 +196,8 @@ function displayResults(responseJson){
         <img src="` + responseJson[i].URL + `" alt="Dog ` + responseJson[i].Name +  `" height="200" width="200" class="center">
       </div>`
     )
-  }; 
+    $('#' + responseJson[i]._id).css('color', '');
+  } 
   $('#results-list').show(); 
   $('#results').removeClass('hidden');
 }; 

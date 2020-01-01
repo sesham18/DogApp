@@ -21,6 +21,7 @@ app.use(express.static('public/css/'));
 var database, collection;
 
 var auth = false;    // default state
+var justAuthenticated = false; 
 
 app.listen(3000, () => {
     MongoClient.connect(DATABASE_URL, { useNewUrlParser: true }, (error, client) => {
