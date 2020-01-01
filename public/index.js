@@ -1,7 +1,7 @@
 'use strict';
 
-var dog = 'http://localhost:3000/doggone';
-export var authUrl = 'http://localhost:3000/auth';
+var dog = 'http://doggone.info/doggone';
+export var authUrl = 'http://doggone.info/auth';
 
 export function sendAuthState(state) {
   return fetch(authUrl, {
