@@ -1,6 +1,7 @@
 Doggone, An interactive app that lets you view and manage adoptable dogs
 
-Live website: https://warm-stream-27959.herokuapp.com/
+Live website: http://www.doggone.info/
+Heroku Website: https://warm-stream-27959.herokuapp.com/
 
 This app allows a user to create, read, update, and remove dogs from the Doggone database.
 
